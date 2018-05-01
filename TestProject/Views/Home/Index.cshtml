@@ -1,0 +1,58 @@
+﻿@using System.Linq;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <form method="post" onsubmit="return ValidValues()" enctype="application/x-www-form-urlencoded" action="http://localhost:50144/api/FormApi/Add">
+            First Name: <input id="idFirst_Name" name="First_Name" type="text" required /><br />
+            Last Name: <input id="idLast_Name" name="Last_Name" type="text"  required /> <br />
+            Id : <input id="idId" name="Identity_Card" type="text" required /> <br />
+            Join Route: <select id="idjoinroute" name="Join_Track" requird>
+                <option>Stock</option>
+                <option>Bonds</option>
+            </select> <br />
+            Monthly Deposit Amount: <input id="idmonthlyamount" name="Monthly_Deposit" type="number" required/> <br />
+            Agent:   <input id="idagent" name="Agent" type="text" required/> <br />
+            Address:    <input id="idaddress" name="Address" type="text" /> <br />
+            Phone:     <input id="idphone" name="Phone" type="text" required/> <br />
+            Email:   <input id="idphone" name="Email" type="text" /> <br />
+            Account:     <input id="idaccunt" name="Bank_Account_" type="text" required/>  <br />
+            <input id="Idsubmit" type="submit" value="submit">
+            <p id="error"></p>
+        </form>
+    </div>
+
+
+
+    <script>
+            function ValidValues() {
+                var firstname, lastname, id, route, monthlyamount, agent, phone, accunt;
+                firstname = document.getElementById("idFirst_Name").value.length > 0;
+                lastname = document.getElementById("idLast_Name").value.length > 0;
+                id = document.getElementById("idId").value.length > 0;
+                route = document.getElementById("idjoinroute").value.length > 0;
+                monthlyamount = document.getElementById("idmonthlyamount").value.length > 0;
+                agent = document.getElementById("idagent").value.length > 0;
+                phone = document.getElementById("idphone").value.length > 0;
+                accunt = document.getElementById("idaccunt").value.length > 0;
+
+                if (firstname && lastname && id && route && monthlyamount && agent && phone && accunt) {
+                    window.alert("aaa");
+                    return true;
+                }
+                else
+                {
+                    document.getElementById("error").innerText = "Please fill all required fields";
+                  window.alert("Please fill all required fields");
+                    return false;
+                }
+
+            }
+    </script>
+</body>
+</html>
